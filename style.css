@@ -263,3 +263,15 @@ body {
   left: 110%;
   font-size: 1.5rem;
 }
+
+#reset {
+  position: absolute;
+  bottom: 74%;
+  left: 49%;
+  background: url(images/tur.jpg) right top;
+  padding: 5px;
+  border: 5px solid;
+  border-color: rgba(38, 108, 108, 0.775);
+  cursor: pointer;
+  z-index: 5;
+}
