@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Hangman</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Creepster&family=Eater&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="hangman">
+        <img class="tree" src="images/base.png" alt="base of tree" />
+        <img class="rope" src="images/rope.png" alt="rope" />
+        <img class="neck" src="images/neck.png" alt="neck" />
+        <img class="head" src="images/head.png" alt="head" />
+        <img class="body" src="images/body.png" alt="body" />
+        <img class="left-arm" src="images/left arm.png" alt="left arm" />
+        <img class="right-arm" src="images/right arm.png" alt="right arm" />
+        <img class="left-foot" src="images/left foot.png" alt="left foot" />
+        <img class="right-foot" src="images/right foot.png" alt="right foot" />
+      </div>
+      <div class="first-characters">
+        <p id="a">A</p>
+        <p id="b">B</p>
+        <p id="c">C</p>
+        <p id="d">D</p>
+        <p id="e">E</p>
+        <p id="f">F</p>
+        <p id="g">G</p>
+        <p id="h">H</p>
+        <p id="i">I</p>
+      </div>
+      <div class="second-characters">
+        <p id="j">J</p>
+        <p id="k">K</p>
+        <p id="l">L</p>
+        <p id="m">M</p>
+        <p id="n">N</p>
+        <p id="o">O</p>
+        <p id="p">P</p>
+        <p id="q">Q</p>
+      </div>
+      <div class="third-characters">
+        <p id="r">R</p>
+        <p id="s">S</p>
+        <p id="t">T</p>
+        <p id="u">U</p>
+        <p id="v">V</p>
+        <p id="w">W</p>
+        <p id="x">X</p>
+        <p id="y">Y</p>
+        <p id="z">Z</p>
+      </div>
+      <div id="play-btn">
+        <i class="fa-solid fa-play fa-5x"></i>
+        <p>Start the game</p>
+      </div>
+      <div id="how-to-play">
+        <p>How to play?</p>
+      </div>
+      <div id="crowd">
+        <img class="crowd" src="images/group.png" alt="laughing crowed" />
+      </div>
+      <div id="scores">
+        <i id="score" class="fa-solid fa-star fa-3x"></i>
+        <p class="score-text">Score:</p>
+        <i id="death" class="fa-sharp fa-solid fa-skull fa-3x"></i>
+        <p class="death-text">Death:</p>
+      </div>
+    </div>
+  </body>
+</html>
