@@ -11,6 +11,10 @@ body {
   font-family: "Eater", cursive;
 }
 
+.opacity {
+  opacity: 0;
+}
+
 .main-container {
   background: url(images/background.png) no-repeat center center/cover;
   height: 130vh;

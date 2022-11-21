@@ -27,6 +27,7 @@ const rightFoot = document.getElementsByClassName("right-foot");
 const crowd = document.getElementsByClassName("crowd");
 
 //The characters
+
 const a = document.getElementById("a");
 const b = document.getElementById("b");
 const c = document.getElementById("c");
@@ -54,6 +55,10 @@ const x = document.getElementById("x");
 const y = document.getElementById("y");
 const z = document.getElementById("z");
 
+//Array of each characters w/ DOM
+const allChar = document.querySelectorAll(".char");
+
+//List of words that needs to be guessed
 const listWords = [
   "House",
   "computer",
@@ -68,3 +73,11 @@ const listWords = [
   "friends",
   "fighting",
 ];
+
+//If button is clicked, then change background to black
+
+for (let i = 0; i < allChar.length; i++) {
+  allChar[i].addEventListener("click", function () {
+    allChar[i].style.background = "url(black.jpg)";
+  });
+}
