@@ -191,24 +191,23 @@ body {
 }
 
 #play-btn {
-  display: flex;
   position: absolute;
-  top: 1px;
-  width: 100%;
-  justify-content: center;
-  padding-top: 300px;
-  z-index: 4;
+  bottom: 58%;
+  left: 45%;
+  height: 10vh;
 }
 
 #play-btn p {
-  padding-top: 24px;
-  padding-left: 10px;
+  position: relative;
+  left: 50%;
   cursor: pointer;
-  z-index: 4;
+  top: 40%;
 }
 
 #play-btn i {
+  position: absolute;
   cursor: pointer;
+  bottom: 1%;
 }
 
 #how-to-play {

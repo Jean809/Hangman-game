@@ -8,6 +8,8 @@ const reset = document.getElementById("reset");
 
 //start game button
 const startGame = document.getElementById("play-btn");
+const startGameText = document.getElementById("start");
+const playbtn = document.getElementById("the-button");
 
 //Score being displayed on screen
 const score = document.getElementsByClassName("score-text");
@@ -81,3 +83,11 @@ for (let i = 0; i < allChar.length; i++) {
     allChar[i].style.background = "url(black.jpg)";
   });
 }
+
+startGame.addEventListener("click", function () {
+  startGameText.textContent = "Playing...";
+  startGameText.style.left = "100%";
+  startGameText.style.top = "60%";
+  playbtn.classList.remove("fa-solid", "fa-play", "fa-5x");
+  playbtn.classList.add("fa-solid", "fa-person-digging", "fa-4x");
+});
