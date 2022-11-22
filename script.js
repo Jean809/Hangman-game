@@ -8,7 +8,7 @@ const reset = document.getElementById("reset");
 
 //start game button
 const startGame = document.getElementById("play-btn");
-const startGameText = document.getElementById("start");
+const startGameText = document.getElementById("start-the-game");
 const playbtn = document.getElementById("the-button");
 
 //Score being displayed on screen
@@ -83,6 +83,8 @@ for (let i = 0; i < allChar.length; i++) {
     allChar[i].style.background = "url(black.jpg)";
   });
 }
+
+//Playing button changes on click
 
 startGame.addEventListener("click", function () {
   startGameText.textContent = "Playing...";

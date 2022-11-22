@@ -26,7 +26,8 @@ body {
   justify-content: center;
   align-items: end;
   padding-bottom: 60px;
-  padding-left: 100px;
+  padding-left: 90px;
+  padding-right: 60px;
 }
 
 .tree {
@@ -216,8 +217,8 @@ body {
   top: 1px;
   width: 100%;
   justify-content: center;
-  padding-top: 100px;
-  padding-left: 30px;
+  padding-top: 40px;
+  padding-left: 73px;
   z-index: 4;
 }
 
@@ -270,11 +271,18 @@ body {
 #reset {
   position: absolute;
   bottom: 74%;
-  left: 49%;
+  left: 50%;
   background: url(images/tur.jpg) right top;
   padding: 5px;
   border: 5px solid;
   border-color: rgba(38, 108, 108, 0.775);
   cursor: pointer;
   z-index: 5;
+}
+
+#guess-word {
+  position: absolute;
+  bottom: 30%;
+  left: 49%;
+  font-size: 1.5rem;
 }
