@@ -12,21 +12,23 @@ const startGameText = document.getElementById("start-the-game");
 const playbtn = document.getElementById("the-button");
 
 //Score being displayed on screen
-const score = document.getElementsByClassName("score-text");
-const death = document.getElementsByClassName("death-text");
+const score = document.querySelector(".score-text");
+const death = document.querySelector(".death-text");
 
 // The tree + the body of hangman
-const tree = document.getElementsByClassName("tree");
-const neck = document.getElementsByClassName("neck");
-const head = document.getElementsByClassName("head");
-const body = document.getElementsByClassName("body");
-const leftArm = document.getElementsByClassName("left-arm");
-const rightArm = document.getElementsByClassName("right-arm");
-const leftFoot = document.getElementsByClassName("left-foot");
-const rightFoot = document.getElementsByClassName("right-foot");
+const hangmanContainer = document.querySelector(".hangman");
+const tree = document.querySelector(".tree");
+const rope = document.querySelector(".rope");
+const neck = document.querySelector(".neck");
+const head = document.querySelector(".head");
+const body = document.querySelector(".body");
+const leftArm = document.querySelector(".left-arm");
+const rightArm = document.querySelector(".right-arm");
+const leftFoot = document.querySelector(".left-foot");
+const rightFoot = document.querySelector(".right-foot");
 
 //The crowd next to hangman
-const crowd = document.getElementsByClassName("crowd");
+const crowd = document.querySelector(".crowd");
 
 //The characters
 
@@ -76,6 +78,9 @@ const listWords = [
   "fighting",
 ];
 
+guessWord = document.getElementById("guess-word");
+guessWord.classList.add("opacity");
+
 //If button is clicked, then change background to black
 
 for (let i = 0; i < allChar.length; i++) {
@@ -83,6 +88,8 @@ for (let i = 0; i < allChar.length; i++) {
     allChar[i].style.background = "url(black.jpg)";
   });
 }
+
+function guessTheWord(arr) {}
 
 //Playing button changes on click
 
@@ -92,4 +99,14 @@ startGame.addEventListener("click", function () {
   startGameText.style.top = "60%";
   playbtn.classList.remove("fa-solid", "fa-play", "fa-5x");
   playbtn.classList.add("fa-solid", "fa-person-digging", "fa-4x");
+  tree.classList.add("opacity");
+  rope.classList.add("opacity");
+  neck.classList.add("opacity");
+  head.classList.add("opacity");
+  body.classList.add("opacity");
+  rightArm.classList.add("opacity");
+  leftArm.classList.add("opacity");
+  leftFoot.classList.add("opacity");
+  rightFoot.classList.add("opacity");
+  crowd.classList.add("opacity");
 });
