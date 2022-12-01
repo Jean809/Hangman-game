@@ -30,8 +30,11 @@ const rightFoot = document.querySelector(".right-foot");
 //The crowd next to hangman
 const crowd = document.querySelector(".crowd");
 
-//The characters
+//div of the word that needs to be guessed
+guessWord = document.getElementById("guess-word");
+guessWord.classList.add("opacity");
 
+//The characters
 const letterA = document.getElementById("a");
 const letterB = document.getElementById("b");
 const letterC = document.getElementById("c");
@@ -79,34 +82,6 @@ const allChar = document.querySelectorAll(".char");
 const house = ["H", "O", "U", "S", "E"];
 const computer = ["C", "O", "U", "T", "E", "R"];
 
-const alphabet = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
 //Playing button changes on click
 
 startGame.addEventListener("click", function () {
@@ -127,8 +102,35 @@ startGame.addEventListener("click", function () {
 });
 
 //If button is clicked, then change background to black
-guessWord = document.getElementById("guess-word");
-guessWord.classList.add("opacity");
+
+function changeCharacterColor() {}
+
+//Function that adds bodyparts to hangman as player gets the character wrong
+
+function addBodyPart(arr, i) {
+  if (arr.includes(String(allChar[i].textContent))) {
+    guessWord.classList.remove("opacity");
+    guessWord.textContent += `${allChar[i].textContent}`;
+  } else if (rope.classList.contains("opacity")) {
+    rope.classList.remove("opacity");
+  } else if (head.classList.contains("opacity")) {
+    head.classList.remove("opacity");
+  } else if (neck.classList.contains("opacity")) {
+    neck.classList.remove("opacity");
+  } else if (body.classList.contains("opacity")) {
+    body.classList.remove("opacity");
+  } else if (rightArm.classList.contains("opacity")) {
+    rightArm.classList.remove("opacity");
+  } else if (leftArm.classList.contains("opacity")) {
+    leftArm.classList.remove("opacity");
+  } else if (leftFoot.classList.contains("opacity")) {
+    leftFoot.classList.remove("opacity");
+  } else if (rightFoot.classList.contains("opacity")) {
+    rightFoot.classList.remove("opacity");
+  }
+}
+
+//function that holds the logic of the game together
 
 function guessTheWord(arr) {
   //const randomWord = arr[Math.floor(Math.random() * arr.length)];
@@ -139,6 +141,8 @@ function guessTheWord(arr) {
       allChar[i].style.background = "url(black.jpg)";
       allChar[i].style.pointerEvents = "none";
 
+      addBodyPart(arr, i);
+      /*
       if (arr.includes(String(allChar[i].textContent))) {
         guessWord.classList.remove("opacity");
         guessWord.textContent += `${allChar[i].textContent}`;
@@ -158,7 +162,7 @@ function guessTheWord(arr) {
         leftFoot.classList.remove("opacity");
       } else if (rightFoot.classList.contains("opacity")) {
         rightFoot.classList.remove("opacity");
-      }
+      } */
     });
   }
 }
