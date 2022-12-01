@@ -32,65 +32,81 @@ const crowd = document.querySelector(".crowd");
 
 //The characters
 
-const a = document.getElementById("a");
-const b = document.getElementById("b");
-const c = document.getElementById("c");
-const d = document.getElementById("d");
-const e = document.getElementById("e");
-const f = document.getElementById("f");
-const g = document.getElementById("g");
-const h = document.getElementById("h");
-const i = document.getElementById("i");
-const j = document.getElementById("j");
-const k = document.getElementById("k");
-const l = document.getElementById("l");
-const m = document.getElementById("m");
-const n = document.getElementById("n");
-const o = document.getElementById("o");
-const p = document.getElementById("p");
-const q = document.getElementById("q");
-const r = document.getElementById("r");
-const s = document.getElementById("s");
-const t = document.getElementById("t");
-const u = document.getElementById("u");
-const v = document.getElementById("v");
-const w = document.getElementById("w");
-const x = document.getElementById("x");
-const y = document.getElementById("y");
-const z = document.getElementById("z");
+const letterA = document.getElementById("a");
+const letterB = document.getElementById("b");
+const letterC = document.getElementById("c");
+const letterD = document.getElementById("d");
+const letterE = document.getElementById("e");
+const letterF = document.getElementById("f");
+const letterG = document.getElementById("g");
+const letterH = document.getElementById("h");
+const letterI = document.getElementById("i");
+const letterJ = document.getElementById("j");
+const letterK = document.getElementById("k");
+const letterL = document.getElementById("l");
+const letterM = document.getElementById("m");
+const letterN = document.getElementById("n");
+const letterO = document.getElementById("o");
+const letterP = document.getElementById("p");
+const letterQ = document.getElementById("q");
+const letterR = document.getElementById("r");
+const letterS = document.getElementById("s");
+const letterT = document.getElementById("t");
+const letterU = document.getElementById("u");
+const letterV = document.getElementById("v");
+const letterW = document.getElementById("w");
+const letterX = document.getElementById("x");
+const letterY = document.getElementById("y");
+const letterZ = document.getElementById("z");
 
 //Array of each characters w/ DOM
 const allChar = document.querySelectorAll(".char");
 
 //List of words that needs to be guessed
-const listWords = [
-  "House",
-  "computer",
-  "mathematics",
-  "playstation",
-  "nintendo",
-  "science",
-  "nightmare",
-  "skeleton",
-  "cemetary",
-  "commander",
-  "friends",
-  "fighting",
+//const listWords = {
+//house:// ["H", "O", "U", "S", "E"],
+//computer: ["C", "O", "M", "P", "U", "T", "E", "R"],
+/*background: "BACKGROUND",
+  earth: "EARTH",
+  weakling: "WEAKLING",
+  welcoming: "WELCOMING",
+  nightmare: "NIGHTMARE",
+  onion: "ONION",
+  country: "COUNTRY",
+  friends: "FRIENDS",
+};*/
+
+const house = ["H", "O", "U", "S", "E"];
+const computer = ["C", "O", "U", "T", "E", "R"];
+
+const alphabet = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
 ];
-
-guessWord = document.getElementById("guess-word");
-guessWord.classList.add("opacity");
-
-//If button is clicked, then change background to black
-
-for (let i = 0; i < allChar.length; i++) {
-  allChar[i].addEventListener("click", function () {
-    allChar[i].style.background = "url(black.jpg)";
-  });
-}
-
-function guessTheWord(arr) {}
-
 //Playing button changes on click
 
 startGame.addEventListener("click", function () {
@@ -99,7 +115,6 @@ startGame.addEventListener("click", function () {
   startGameText.style.top = "60%";
   playbtn.classList.remove("fa-solid", "fa-play", "fa-5x");
   playbtn.classList.add("fa-solid", "fa-person-digging", "fa-4x");
-  tree.classList.add("opacity");
   rope.classList.add("opacity");
   neck.classList.add("opacity");
   head.classList.add("opacity");
@@ -110,3 +125,42 @@ startGame.addEventListener("click", function () {
   rightFoot.classList.add("opacity");
   crowd.classList.add("opacity");
 });
+
+//If button is clicked, then change background to black
+guessWord = document.getElementById("guess-word");
+guessWord.classList.add("opacity");
+
+function guessTheWord(arr) {
+  //const randomWord = arr[Math.floor(Math.random() * arr.length)];
+  console.log(arr);
+
+  for (let i = 0; i < allChar.length; i++) {
+    allChar[i].addEventListener("click", function () {
+      allChar[i].style.background = "url(black.jpg)";
+      allChar[i].style.pointerEvents = "none";
+
+      if (arr.includes(String(allChar[i].textContent))) {
+        guessWord.classList.remove("opacity");
+        guessWord.textContent += `${allChar[i].textContent}`;
+      } else if (rope.classList.contains("opacity")) {
+        rope.classList.remove("opacity");
+      } else if (head.classList.contains("opacity")) {
+        head.classList.remove("opacity");
+      } else if (neck.classList.contains("opacity")) {
+        neck.classList.remove("opacity");
+      } else if (body.classList.contains("opacity")) {
+        body.classList.remove("opacity");
+      } else if (rightArm.classList.contains("opacity")) {
+        rightArm.classList.remove("opacity");
+      } else if (leftArm.classList.contains("opacity")) {
+        leftArm.classList.remove("opacity");
+      } else if (leftFoot.classList.contains("opacity")) {
+        leftFoot.classList.remove("opacity");
+      } else if (rightFoot.classList.contains("opacity")) {
+        rightFoot.classList.remove("opacity");
+      }
+    });
+  }
+}
+
+guessTheWord(computer);
