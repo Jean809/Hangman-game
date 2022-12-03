@@ -62,6 +62,9 @@ const letterX = document.getElementById("x");
 const letterY = document.getElementById("y");
 const letterZ = document.getElementById("z");
 
+//container of characters by column
+const firstLineChar = document.querySelector(".first-characters");
+
 //Array of each characters w/ DOM
 const allChar = document.querySelectorAll(".char");
 
@@ -101,11 +104,19 @@ startGame.addEventListener("click", function () {
   crowd.classList.add("opacity");
 });
 
-//If button is clicked, then change background to black
+//If button is clicked, then change background to black. This function also calls addBodyPart() since the said function works within this loop
 
-function changeCharacterColor() {}
+function changeCharacterColor(arr) {
+  for (let i = 0; i < allChar.length; i++) {
+    allChar[i].addEventListener("click", function () {
+      allChar[i].style.background = "url(black.jpg)";
+      allChar[i].style.pointerEvents = "none";
+      addBodyPart(arr, i);
+    });
+  }
+}
 
-//Function that adds bodyparts to hangman as player gets the character wrong
+//Function that adds bodyparts to hangman and characters to screen as player gets the character right or wrong
 
 function addBodyPart(arr, i) {
   if (arr.includes(String(allChar[i].textContent))) {
@@ -127,44 +138,18 @@ function addBodyPart(arr, i) {
     leftFoot.classList.remove("opacity");
   } else if (rightFoot.classList.contains("opacity")) {
     rightFoot.classList.remove("opacity");
+  } else {
+    firstLineChar.classList.add("opacity");
   }
 }
 
-//function that holds the logic of the game together
+//const randomWord = arr[Math.floor(Math.random() * arr.length)];
+
+/*function that holds the logic of the game together*/
 
 function guessTheWord(arr) {
-  //const randomWord = arr[Math.floor(Math.random() * arr.length)];
   console.log(arr);
-
-  for (let i = 0; i < allChar.length; i++) {
-    allChar[i].addEventListener("click", function () {
-      allChar[i].style.background = "url(black.jpg)";
-      allChar[i].style.pointerEvents = "none";
-
-      addBodyPart(arr, i);
-      /*
-      if (arr.includes(String(allChar[i].textContent))) {
-        guessWord.classList.remove("opacity");
-        guessWord.textContent += `${allChar[i].textContent}`;
-      } else if (rope.classList.contains("opacity")) {
-        rope.classList.remove("opacity");
-      } else if (head.classList.contains("opacity")) {
-        head.classList.remove("opacity");
-      } else if (neck.classList.contains("opacity")) {
-        neck.classList.remove("opacity");
-      } else if (body.classList.contains("opacity")) {
-        body.classList.remove("opacity");
-      } else if (rightArm.classList.contains("opacity")) {
-        rightArm.classList.remove("opacity");
-      } else if (leftArm.classList.contains("opacity")) {
-        leftArm.classList.remove("opacity");
-      } else if (leftFoot.classList.contains("opacity")) {
-        leftFoot.classList.remove("opacity");
-      } else if (rightFoot.classList.contains("opacity")) {
-        rightFoot.classList.remove("opacity");
-      } */
-    });
-  }
+  changeCharacterColor(arr);
 }
 
 guessTheWord(computer);
