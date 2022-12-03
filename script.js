@@ -64,6 +64,8 @@ const letterZ = document.getElementById("z");
 
 //container of characters by column
 const firstLineChar = document.querySelector(".first-characters");
+const secondLineChar = document.querySelector(".second-characters");
+const thirdLineChar = document.querySelector(".third-characters");
 
 //Array of each characters w/ DOM
 const allChar = document.querySelectorAll(".char");
@@ -84,6 +86,7 @@ const allChar = document.querySelectorAll(".char");
 
 const house = ["H", "O", "U", "S", "E"];
 const computer = ["C", "O", "U", "T", "E", "R"];
+const nothing = ["O"];
 
 //Playing button changes on click
 
@@ -139,8 +142,20 @@ function addBodyPart(arr, i) {
   } else if (rightFoot.classList.contains("opacity")) {
     rightFoot.classList.remove("opacity");
   } else {
-    firstLineChar.classList.add("opacity");
+    youLostThegame();
   }
+}
+
+// A function that adds the elements/classes of death after you die
+
+function youLostThegame() {
+  firstLineChar.classList.add("opacity");
+  secondLineChar.classList.add("opacity");
+  thirdLineChar.classList.add("opacity");
+  crowd.classList.remove("opacity");
+  playbtn.classList.remove("fa-solid", "fa-person-digging", "fa-5x");
+  playbtn.classList.add("fa-solid", "fa-skull-crossbones", "fa-4x");
+  startGameText.textContent = "YOU DIED...";
 }
 
 //const randomWord = arr[Math.floor(Math.random() * arr.length)];
@@ -152,4 +167,4 @@ function guessTheWord(arr) {
   changeCharacterColor(arr);
 }
 
-guessTheWord(computer);
+guessTheWord(nothing);
