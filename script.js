@@ -114,7 +114,7 @@ function changeCharacterColor(arr) {
     allChar[i].addEventListener("click", function () {
       allChar[i].style.background = "url(black.jpg)";
       allChar[i].style.pointerEvents = "none";
-      addBodyPart(arr, i);
+      addCharScreen(arr, i);
     });
   }
 }
@@ -125,13 +125,14 @@ function addCharScreen(arr, i) {
   if (arr.includes(String(allChar[i].textContent))) {
     guessWord.classList.remove("opacity");
     guessWord.textContent += `${allChar[i].textContent}`;
+  } else {
+    addBodyPart();
   }
 }
 
 //Function that adds bodyparts to hangman. This function calls addCharScreen which adds character to the screen as player gets them right
 
-function addBodyPart(arr, i) {
-  addCharScreen(arr, i);
+function addBodyPart() {
   if (rope.classList.contains("opacity")) {
     rope.classList.remove("opacity");
   } else if (head.classList.contains("opacity")) {
@@ -174,4 +175,4 @@ function guessTheWord(arr) {
   changeCharacterColor(arr);
 }
 
-guessTheWord(nothing);
+guessTheWord(house);
