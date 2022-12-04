@@ -119,13 +119,20 @@ function changeCharacterColor(arr) {
   }
 }
 
-//Function that adds bodyparts to hangman and characters to screen as player gets the character right or wrong
+//Function that adds characters to the screen as the player gets the right answer
 
-function addBodyPart(arr, i) {
+function addCharScreen(arr, i) {
   if (arr.includes(String(allChar[i].textContent))) {
     guessWord.classList.remove("opacity");
     guessWord.textContent += `${allChar[i].textContent}`;
-  } else if (rope.classList.contains("opacity")) {
+  }
+}
+
+//Function that adds bodyparts to hangman. This function calls addCharScreen which adds character to the screen as player gets them right
+
+function addBodyPart(arr, i) {
+  addCharScreen(arr, i);
+  if (rope.classList.contains("opacity")) {
     rope.classList.remove("opacity");
   } else if (head.classList.contains("opacity")) {
     head.classList.remove("opacity");
